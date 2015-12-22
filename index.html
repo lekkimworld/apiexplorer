@@ -24,11 +24,33 @@
   <body>
     <div class="container-fluid">
       <h1>OnTime<sup>&reg;</sup> API Explorer</h1>
-      
+
       <div class="row">
-        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">
+          <button data-toggle="collapse" data-target="#demo" class="btn btn-block">Collapsible<span class="caret" /></button>
+          <form id="demo" class="collapse">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Application ID</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ApplID" value="ApiExplorer">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Application Version</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ApplVer" value="0.0.1">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">API Version</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="APIVer" value="6">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Check me out
+              </label>
+            </div>
+          </form>
+          
+        </div>
         <div class="col-md-1"><button type="button" class="btn btn-success btn-block" id="submit">Submit</button></div>
-        <div class="col-md-7">.col-md-4</div>
+        <div class="col-md-7"></div>
       </div>
     </div>
 
