@@ -27,11 +27,36 @@
 
       <div class="row">
         <div class="col-md-4">
-          <button data-toggle="collapse" data-target="#demo" class="btn btn-block">Collapsible<span class="caret" /></button>
+          <div class="form-group">
+            <label for="sel1">Endpoint</label>
+            <select class="form-control" id="sel1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+          <div class="form-group dropdown">
+            <button class="btn btn-block btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Token</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Core</li>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Logout</a></li>
+              <li><a href="#">FreeTimeSearch</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Advanced</li>
+              <li><a href="#">GroupList</a></li>
+              
+            </ul>
+          </div>
+          <button data-toggle="collapse" data-target="#demo" class="btn btn-block">Main Section<span class="caret" /></button>
           <form id="demo" class="collapse">
             <div class="form-group">
               <label for="exampleInputEmail1">Application ID</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ApplID" value="ApiExplorer">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="ApplID" value="ApiExplorer">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Application Version</label>
@@ -41,13 +66,17 @@
               <label for="exampleInputPassword1">API Version</label>
               <input type="text" class="form-control" id="exampleInputPassword1" placeholder="APIVer" value="6">
             </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Custom ID</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="CustomID" value="">
+              <label class="checkbox-inline"><input type="checkbox">Empty</label>
+            </div>
             <div class="checkbox">
               <label>
                 <input type="checkbox"> Check me out
               </label>
             </div>
           </form>
-          
         </div>
         <div class="col-md-1"><button type="button" class="btn btn-success btn-block" id="submit">Submit</button></div>
         <div class="col-md-7"></div>
