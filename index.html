@@ -25,64 +25,181 @@
     <div class="container-fluid">
       <h1>OnTime<sup>&reg;</sup> API Explorer</h1>
 
+      <!-- start row -->
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" id="clmnLeft">
           <div class="form-group">
-            <label for="sel1">Endpoint</label>
-            <select class="form-control" id="sel1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
+            <div class="input-group">
+              <div class="input-group-btn" id="dropwdownOperation">
+                <button class="btn btn-block btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Operation
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#" id="token">Token</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Core</li>
+                  <li><a href="#" id="login">Login</a></li>
+                  <li><a href="#" id="logout">Logout</a></li>
+                  <li><a href="#" id="freetimesearch">FreeTimeSearch</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Advanced</li>
+                  <li><a href="#" id="grouplist">GroupList</a></li>
+                </ul>
+              </div>
+              <input type="text" class="form-control" id="textOperation" disabled="true">
+            </div>
           </div>
-          <div class="form-group dropdown">
-            <button class="btn btn-block btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Token</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">Core</li>
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Logout</a></li>
-              <li><a href="#">FreeTimeSearch</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">Advanced</li>
-              <li><a href="#">GroupList</a></li>
-              
-            </ul>
+
+          <div class="panel-group" id="clmnLeftAccordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#clmnLeftMain">Main</a>
+                    </h4>
+                </div>
+                <div id="clmnLeftMain" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <label for="inputMainCustomID">Application ID</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control input-control" id="inputMainCustomID" placeholder="Application ID" value="ApiExplorer">
+                          <span class = "input-group-addon">
+                              <label class="checkbox-inline"><input type="checkbox" id="checkMainCustoIDEmpty">Omit</label>
+                           </span>
+                        </div>
+                        <label for="inputMainApplVer">Application Version</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control input-control" id="inputMainCustomID" placeholder="Application Version" value="0.0.1">
+                          <span class = "input-group-addon">
+                              <label class="checkbox-inline"><input type="checkbox" id="checkMainApplVerOmit">Omit</label>
+                           </span>
+                        </div>
+                        <label for="inputMainCustomID">API Version</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control input-control" id="inputMainCustomID" placeholder="API Version" value="6">
+                          <span class = "input-group-addon">
+                              <label class="checkbox-inline"><input type="checkbox" id="checkMainCustoIDEmpty">Omit</label>
+                           </span>
+                        </div>
+                        <label for="inputMainCustomID">Custom ID</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control input-control" id="inputMainCustomID" placeholder="Custom ID" value="">
+                          <span class="input-group-addon">
+                              <label class="checkbox-inline"><input type="checkbox" id="checkMainCustomIDOmit">Omit</label>
+                           </span>
+                        </div>
+                        <label for="inputMainToken">Token</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control input-control" id="inputMainToken" placeholder="Token" value="">
+                          <span class = "input-group-addon">
+                              <label class="checkbox-inline"><input type="checkbox" id="checkMainTokenOmit">Omit</label>
+                           </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#clmnLeftData">Data</a>
+                    </h4>
+                </div>
+                <div id="clmnLeftData" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <label for="inputMainToken">User ID</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control input-control" id="inputMainToken" placeholder="Token" value="">
+                          <span class = "input-group-addon">
+                              <label class="checkbox-inline"><input type="checkbox" id="checkMainTokenOmit">Omit</label>
+                           </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
-          <button data-toggle="collapse" data-target="#demo" class="btn btn-block">Main Section<span class="caret" /></button>
-          <form id="demo" class="collapse">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Application ID</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="ApplID" value="ApiExplorer">
+        </div> <!-- end column 1 -->
+
+        <!-- start column 2 -->
+        <div class="col-md-1">
+          <div class="form-group">
+            <button type="button" class="btn btn-success btn-block" id="submit">Submit</button>
+          </div>
+        </div> <!-- end column 2 -->
+
+        <!-- start column 3 -->
+        <div class="col-md-7" id="clmnRight">
+          <div class="panel-group" id="clmnRightAccordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#clmnRightRequestPlain">Request, plain</a>
+                    </h4>
+                </div>
+                <div id="clmnRightRequestPlain" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Application Version</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="ApplVer" value="0.0.1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#clmnRightRequestParsed">Request, parsed</a>
+                    </h4>
+                </div>
+                <div id="clmnRightRequestParsed" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">API Version</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="APIVer" value="6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#clmnRightResponsePlain">Response, plain</a>
+                    </h4>
+                </div>
+                <div id="clmnRightResponsePlain" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Custom ID</label>
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="CustomID" value="">
-              <label class="checkbox-inline"><input type="checkbox">Empty</label>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#clmnRightResponseParsed">Response, parsed</a>
+                    </h4>
+                </div>
+                <div id="clmnRightResponseParsed" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        
+                    </div>
+                </div>
             </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Check me out
-              </label>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-1"><button type="button" class="btn btn-success btn-block" id="submit">Submit</button></div>
-        <div class="col-md-7"></div>
-      </div>
+          </div>
+        </div> <!-- end column 2 -->
+      </div> <!-- end row -->
     </div>
 
+
+    <script type="text/javascript">
+      $("#clmnRightResponseParsed").on("hidden.bs.collapse", function() {
+        
+      });
+      $("#submit").on("click", function() {
+
+      });
+      $('#dropwdownOperation ul.dropdown-menu li a').on("click", function(e) {
+        var id = e.currentTarget.id;
+        var text = e.currentTarget.innerText;
+        $("#textOperation")[0].value = text;
+      });
+
+      window.setTimeout(function() {
+        $("#clmnLeftMain").collapse();
+      }, 2000);
+
+    </script>
 
   </body>
 </html>
