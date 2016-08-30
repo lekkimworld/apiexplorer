@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jjsonviewer.css" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,45 +20,45 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="js/jjsonviewer.js"></script>
     
 
   </head>
   <body>
     <div class="container-fluid">
-      
-<nav class="navbar navbar-default" style="margin-top: 5px">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="">OnTime<sup>&reg;</sup> API Explorer</a>
+      <nav class="navbar navbar-default" style="margin-top: 5px">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">OnTime<sup>&reg;</sup> API Explorer</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Login</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">API Version <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Version 7</a></li>
+                  <li><a href="#">Version 6</a></li>
+                  <li><a href="#">Version 5</a></li>
+                  <li><a href="#">Version 4</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Login</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">API Version <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Version 7</a></li>
-            <li><a href="#">Version 6</a></li>
-            <li><a href="#">Version 5</a></li>
-            <li><a href="#">Version 4</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-
+    <div class="container-fluid">
       <!-- start row -->
       <div class="row">
         <div class="col-md-4" id="clmnLeft">
@@ -168,9 +169,7 @@
                     </h4>
                 </div>
                 <div id="clmnRightRequestPlain" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        
-                    </div>
+                    <div class="panel-body" id="clmnRightRequestPlainBody"></div>
                 </div>
             </div>
             <div class="panel panel-default">
@@ -180,8 +179,8 @@
                     </h4>
                 </div>
                 <div id="clmnRightRequestParsed" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        
+                    <div class="panel-body" id="clmnRightRequestParsedBody">
+                      <div id="jjsonviewer"></div>
                     </div>
                 </div>
             </div>
@@ -229,7 +228,15 @@
         
       });
       $("#submit").on("click", function() {
-        $('#demoLightbox').lightbox();
+        // request obj
+        var reqObj = {"Main": {"ApplID": "ApiExplorer", "ApplVer": "0.0.1", "APIVer": 7}, "Foo": [1, 2, 3], "Bar": [4,5,6],"Login": {"Name": "Mikkel Flindt Heisterberg", "Email": "mfh@intravision.dk"}};
+        var reqStr = JSON.stringify(reqObj);
+
+        // set data in plain text viewer for request
+        $("#clmnRightRequestPlainBody").text(reqStr);
+
+        // set data into JSON viewer for request
+        var json = $("#jjsonviewer").jJsonViewer(reqObj, {expanded: true});
       });
 
       $('#dropwdownOperation ul.dropdown-menu li a').on("click", function(e) {
